@@ -1,0 +1,468 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Troque as cores aqui e o site inteiro muda */
+:root {
+    --branco: #ffffff;
+    --fundo: #eef2f1;
+    --destaque: #123d36;
+    --detalhe: #0f766e;
+    --texto: #17302b;
+    --linha: #d5dfdc;
+    --perigo: #b4442f;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    font-family: "Segoe UI", sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto);
+}
+
+/* ===== Menu lateral ===== */
+nav {
+    width: 210px;
+    padding: 24px 14px;
+    background-color: var(--destaque);
+    color: #d8ebe6;
+    flex-shrink: 0;
+}
+
+nav h1 {
+    font-size: 18px;
+    margin: 0 8px 24px;
+}
+
+nav button {
+    display: block;
+    width: 100%;
+    padding: 11px 12px;
+    margin-bottom: 4px;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav button.ativo {
+    background-color: var(--branco);
+    color: var(--destaque);
+    font-weight: 600;
+}
+
+main {
+    flex: 1;
+    padding: 32px;
+    max-width: 1100px;
+}
+
+section {
+    display: none;
+}
+
+section.ativa {
+    display: block;
+}
+
+h2 {
+    margin-bottom: 18px;
+    font-size: 22px;
+}
+
+h2 small {
+    font-size: 14px;
+    color: #60756f;
+    font-weight: 400;
+}
+
+h3 {
+    margin: 26px 0 12px;
+    font-size: 16px;
+}
+
+/* ===== Formulário ===== */
+.card {
+    padding: 20px;
+    background-color: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 12px;
+}
+
+.campos {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 14px;
+}
+
+label {
+    display: block;
+    margin: 8px 0 5px;
+    font-size: 13px;
+    color: #60756f;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font: inherit;
+    color: var(--texto);
+    background-color: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 8px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--detalhe);
+}
+
+textarea {
+    min-height: 70px;
+    resize: vertical;
+}
+
+.pag {
+    display: flex;
+    gap: 8px;
+}
+
+.olho {
+    width: 42px;
+    flex-shrink: 0;
+    font-size: 17px;
+    background-color: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.olho.tem {
+    background-color: #d9efeb;
+    border-color: var(--detalhe);
+}
+
+#obsBox {
+    margin-top: 14px;
+}
+
+.acoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font: inherit;
+    font-weight: 600;
+    color: var(--branco);
+    background-color: var(--detalhe);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    filter: brightness(0.9);
+}
+
+.btn.sec {
+    color: var(--texto);
+    background-color: #e3ebe9;
+}
+
+.erro {
+    min-height: 16px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--perigo);
+}
+
+/* ===== Últimos pedidos ===== */
+.ultimo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background-color: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 10px;
+}
+
+.ultimo .info {
+    flex: 1;
+}
+
+.mini {
+    display: flex;
+    padding: 6px 45px;
+    margin: 0 auto;
+    font: inherit;
+    font-size: 13px;
+    background-color: #8FFFCC;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.mini.del {
+    color: var(--perigo);
+}
+
+.btn_ultimo {
+    display: flex;
+    padding: 6px 45px;
+    margin: 0 auto;
+    font: inherit;
+    font-size: 13px;    
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.vazio {
+    padding: 10px 0;
+    color: #60756f;
+}
+
+/* ===== Quadro do entregador ===== */
+.quadro {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+}
+
+.coluna {
+    min-height: 500px;
+    padding: 12px;
+    background-color: #dfe8e6;
+    border-radius: 12px;
+}
+
+.coluna h3 {
+    margin: 0 0 12px;
+}
+
+.card_entrega {
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 10px;
+    cursor: g rab;
+}
+
+.card_entrega small {
+    display: block;
+    margin: 4px 0 8px;
+    color: #60756f;
+}
+
+/* ===== Histórico em pastas ===== */
+.pasta {
+    margin: 6px 0 6px 16px;
+}
+
+.pasta summary {
+    padding: 6px 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* ===== Tabelas ===== */
+.tabela {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--branco);
+}
+
+th,
+td {
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 14px;
+    border-bottom: 1px solid var(--linha);
+}
+
+th {
+    background-color: #e3ebe9;
+}
+
+/* O lápis só aparece com o mouse em cima da linha */
+.lapis button,
+.olho_rel {
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.lapis button {
+    opacity: 0;
+}
+
+tr:hover .lapis button {
+    opacity: 1;
+}
+
+.linha_obs td {
+    background-color: #fbf6ea;
+    white-space: pre-wrap;
+}
+
+/* ===== Relatório ===== */
+.topo_relatorio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.resumo {
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.resumo div {
+    min-width: 110px;
+    padding: 8px 14px;
+    background-color: var(--branco);
+    border: 1px solid var(--linha);
+    border-radius: 10px;
+}
+
+.resumo small {
+    display: block;
+    font-size: 12px;
+    color: #60756f;
+}
+
+.resumo .total {
+    background-color: var(--destaque);
+    color: var(--branco);
+}
+
+.resumo .total small {
+    color: #d8ebe6;
+}
+
+
+
+/* ===== Janela (modal) de entrega ===== */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.modal[hidden] {
+    display: none;
+}
+
+.modal_caixa {
+    width: 90%;
+    max-width: 420px;
+    padding: 24px;
+    background-color: var(--branco);
+    border-radius: 12px;
+}
+
+.modal_caixa h3 {
+    margin-top: 0;
+}
+
+.modal_caixa .btn {
+    flex: 1;
+    color: var(--texto);
+    background-color: #e3ebe9;
+}
+
+.modal_caixa .btn.marcado,
+.modal_caixa #confirmar {
+    color: var(--branco);
+    background-color: var(--detalhe);
+}
+
+.modal_caixa .btn.sec {
+    background-color: #e3ebe9;
+    color: var(--texto);
+}
+
+/* ===== Telas pequenas ===== */
+@media (max-width: 900px) {
+    .quadro {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 720px) {
+    body {
+        flex-direction: column;
+    }
+
+    .btn-ultimo {
+        
+    }
+
+    .coluna {
+        min-height: 300px;
+    }
+
+    nav {
+        display: flex;
+        font-size: 13px;
+        width: 100%;
+        gap: 6px;
+        padding: 5px;
+        overflow-x: auto;
+    }
+
+    nav h1 {
+        display: none;
+    }
+
+    nav button {
+        display: flex;
+        width: auto;
+        margin: 0 auto;
+        white-space: nowrap;
+    }
+
+    main {
+        padding: 18px;
+    }
+
+    .campos,
+    .quadro {
+        grid-template-columns: 1fr;
+    }
+
+    .lapis button {
+        opacity: 1;
+    }
+}

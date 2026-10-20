@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Controle de Pedidos</title>
+</head>
+
+<body>
+    <!-- Menu lateral: o data-aba é o id da section que vai abrir -->
+    <nav>
+        <h1>Controle de Pedidos</h1>
+        <button class="ativo" data-aba="pedidos">Novo pedido</button>
+        <button data-aba="entregador">Entregador</button>
+        <button data-aba="historico">Histórico</button>
+        <button data-aba="relatorio">Relatório</button>
+    </nav>
+
+    <main>
+        <!-- ABA 1: formulário + últimos 3 pedidos -->
+        <section id="pedidos" class="ativa">
+            <h2>Novo pedido</h2>
+            <div class="card">
+                <div class="campos">
+                    <div>
+                        <label for="cliente">Nome do cliente</label>
+                        <input id="cliente" type="text" autocomplete="off">
+                    </div>
+                    <div>
+                        <label for="valor">Valor da compra (R$)</label>
+                        <input id="valor" type="text" inputmode="decimal" placeholder="0,00">
+                    </div>
+                    <div>
+                        <label for="pagamento">Forma de pagamento</label>
+                        <div class="pag">
+                            <select id="pagamento">
+                                <option>Dinheiro</option>
+                                <option>Débito</option>
+                                <option>Crédito</option>
+                                <option selected>Pix</option>
+                                <option>Convênio</option>
+                                <option>Ifood</option>
+                            </select>
+                            <button type="button" class="olho" id="olho" title="Observação">👁️</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="obsBox" hidden>
+                    <label for="obs">Observação (problemas ou detalhes do pedido)</label>
+                    <textarea id="obs"></textarea>
+                </div>
+                <div class="acoes">
+                    <button class="btn" id="enviar">Enviar pedido</button>
+                    <button class="btn sec" id="cancelar" hidden>Cancelar edição</button>
+                </div>
+                <div class="erro" id="erro"></div>
+            </div>
+            <h3>Últimos 3 pedidos</h3>
+            <div id="ultimos"></div>
+        </section>
+
+        <!-- ABA 2: quadro do entregador (arrastar entre colunas) -->
+        <section id="entregador">
+            <h2>Entregador <small>(entregas de hoje)</small></h2>
+            <div id="quadro" class="quadro"></div>
+        </section>
+
+        <!-- ABA 3: histórico em pastas (ano > mês > dia) -->
+        <section id="historico">
+            <h2>Histórico de pedidos</h2>
+            <div id="arvore"></div>
+        </section>
+
+        <!-- ABA 4: relatório -->
+        <section id="relatorio">
+            <h2>Relatório</h2>
+            <div class="topo_relatorio">
+                <button class="btn" id="exportar">Exportar planilha</button>
+                <div class="resumo" id="resumo"></div>
+            </div>
+            <div class="tabela">
+                <table>
+                    <thead>
+                        <tr><th>Data</th><th>Cliente</th><th>Pagamento</th><th>Valor</th><th>Obs.</th></tr>
+                    </thead>
+                    <tbody id="corpo_relatorio"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Janela que pergunta se o pedido é entrega -->
+    <div id="modal" class="modal" hidden>
+        <div class="modal_caixa">
+            <h3>O pedido será entrega?</h3>
+            <div class="acoes">
+                <button class="btn marcado" id="btn_sim">Sim</button>
+                <button class="btn" id="btn_nao">Não</button>
+            </div>
+            <div id="campos_entrega">
+                <label for="rua">Nome da rua</label>
+                <input id="rua" type="text">
+                <label for="numero">Número da casa</label>
+                <input id="numero" type="text">
+                <label for="cep">CEP (opcional)</label>
+                <input id="cep" type="text" inputmode="numeric">
+            </div>
+            <div class="erro" id="erro_modal"></div>
+            <div class="acoes">
+                <button class="btn" id="confirmar">Confirmar pedido</button>
+                <button class="btn sec" id="voltar">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
